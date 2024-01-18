@@ -9,7 +9,7 @@ project(
 find_package(Vulkan REQUIRED)
 
 if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/VulkanMemoryAllocator/CMakeLists.txt)
-    add_subdirectory(VulkanMemoryAllocator)
+    add_subdirectory(VulkanMemoryAllocator GPUOpen)
 else()
     find_package(VulkanMemoryAllocator REQUIRED)
 endif()
@@ -25,7 +25,7 @@ target_include_directories(VulkanMemoryAllocator-Hpp
 target_link_libraries(VulkanMemoryAllocator-Hpp
     INTERFACE
         Vulkan::Vulkan
-        VulkanMemoryAllocator::VulkanMemoryAllocator
+        GPUOpen::VulkanMemoryAllocator
 )
 
 install(
